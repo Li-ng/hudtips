@@ -2,6 +2,7 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'net.neoforged.moddev' version '2.0.141'
+    id 'net.darkhax.curseforgegradle' version '1.1.28'
     id 'idea'
 }
 
@@ -183,4 +184,61 @@ idea {
         downloadSources = true
         downloadJavadoc = true
     }
+}
+
+// ============================================================
+// CurseForge 发布 / CurseForge Publishing
+// ============================================================
+// 使用方法 / Usage:
+//   1. 创建 CurseForge 项目，获取项目 ID / Create project, get ID
+//   2. 生成 API Token: https://www.curseforge.com/account/api-tokens
+//   3. 在 gradle.properties 中设置: curseforgeApiToken=你的token
+//      或设置环境变量: CURSEFORGE_API_TOKEN
+//   4. 运行: ./gradlew publishCurseForge
+//
+//   在 gradle.properties 中设置项目 ID:
+//   curseforgeProjectId=123456
+
+task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+    // API Token — 从 gradle 属性或环境变量读取 / Read from gradle property or env var
+    apiToken = project.findProperty('curseforgeApiToken')
+        ?: System.getenv('CURSEFORGE_API_TOKEN')
+        ?: ''
+
+    // 项目 ID：从 gradle.properties 读取 / Project ID from gradle.properties
+    def projectId = project.findProperty('curseforgeProjectId')?.toString() ?: '0'
+
+    // 主产物上传 / Upload main artifact
+    def mainFile = upload(projectId, tasks.jar)
+
+    // ---- 更新日志 / Changelog ----
+    mainFile.changelogType = 'markdown'
+    mainFile.changelog = file('CHANGELOG.md').exists()
+        ? file('CHANGELOG.md').text
+        : 'Initial release.'
+
+    // ---- 显示名称 / Display name ----
+    mainFile.displayName = "HUD Tips ${project.version}"
+
+    // ---- 发布类型 / Release type ----
+    mainFile.releaseType = project.findProperty('curseforgeReleaseType')?.toString() ?: 'alpha'
+    // 可选值: 'alpha' | 'beta' | 'release'
+
+    // ---- 游戏版本 / Game versions ----
+    mainFile.addGameVersion('1.26.1')
+
+    // ---- 模组加载器 / Mod loader ----
+    mainFile.addModLoader('NeoForge')
+
+    // ---- Java 版本 / Java version ----
+    mainFile.addJavaVersion('Java 25')
+
+    // ---- 环境 / Environments ----
+    mainFile.addEnvironment('Client')
+
+    // ---- 可选：依赖关系 / Relations (optional) ----
+    // mainFile.addRequirement('some-required-mod')     // 前置
+    // mainFile.addOptional('jei')                      // 可选
+    // mainFile.addIncompatibility('conflicting-mod')   // 不兼容
+    // mainFile.addEmbedded('bundled-lib')              // 内嵌
 }
