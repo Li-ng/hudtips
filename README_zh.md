@@ -1,7 +1,7 @@
 # HUD Tips
 
-[![Minecraft](https://img.shields.io/badge/Minecraft-1.26.1-blue.svg)](https://www.minecraft.net/)
-[![NeoForge](https://img.shields.io/badge/NeoForge-26.1-orange.svg)](https://neoforged.net/)
+[![Minecraft](https://img.shields.io/badge/Minecraft-26.1-blue.svg)](https://www.minecraft.net/)
+[![NeoForge](https://img.shields.io/badge/NeoForge-orange.svg)](https://neoforged.net/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 [English / 英文](README.md)
