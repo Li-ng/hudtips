@@ -164,7 +164,7 @@ cd hudtips
 # Output located at build/libs/
 ```
 
-Requires JDK 25 and NeoForge 26.1.
+Requires JDK 25 and Minecraft 26.1.
 
 ---
 
