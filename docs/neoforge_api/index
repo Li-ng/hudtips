@@ -1,0 +1,124 @@
+# NeoForge 26.1 API 文档
+
+> 源文档: https://docs.neoforged.net/
+> 版本: 26.1 (Minecraft 1.21.5+)
+> 抓取时间: 2026-07-02
+
+---
+
+## 目录结构
+
+### 基础入门
+| # | 文件 | 内容 |
+|---|------|------|
+| 01 | `01-gettingstarted.md` | 入门指南 - 环境搭建、Gradle配置、构建测试 |
+| 02 | `02-gettingstarted-modfiles.md` | Mod 文件结构 - mods.toml、依赖配置 |
+| 03 | `03-gettingstarted-structuring.md` | 项目结构 - 代码组织最佳实践 |
+| 04 | `04-gettingstarted-versioning.md` | 版本管理 - 版本号规范 |
+
+### 核心概念
+| # | 文件 | 内容 |
+|---|------|------|
+| 05 | `05-concepts-registries.md` | 🔥 注册表系统 - DeferredRegister、RegisterEvent、查询 |
+| 06 | `06-concepts-events.md` | 🔥 事件系统 - @SubscribeEvent、@EventBusSubscriber、生命周期 |
+| 07 | `07-concepts-sides.md` | 逻辑端/物理端 - Dist、Level#isClientSide()、@Mod(dist) |
+
+### 物品系统
+| # | 文件 | 内容 |
+|---|------|------|
+| 08 | `08-items.md` | 🔥 物品 - Item.Properties、DeferredRegister.Items、CreativeTab |
+| 09 | `09-items-datacomponents.md` | 🔥 数据组件 - DataComponents、自定义组件 |
+| 10 | `10-items-interactions.md` | 物品交互 - 右键/左键交互逻辑 |
+| 11 | `11-items-armor.md` | 盔甲系统 |
+| 12 | `12-items-consumables.md` | 消耗品 - 食物、药水 |
+| 13 | `13-items-tools.md` | 工具系统 |
+| 14 | `14-items-mobeffects.md` | 药水效果 |
+
+### 方块系统
+| # | 文件 | 内容 |
+|---|------|------|
+| 15 | `15-blocks.md` | 🔥 方块 - 注册、Block.Properties、BlockItem |
+| 16 | `16-blocks-states.md` | 方块状态 - BlockState、StateDefinition |
+
+### 方块实体
+| # | 文件 | 内容 |
+|---|------|------|
+| 17 | `17-blockentities.md` | 方块实体 - BE注册、tick逻辑 |
+| 18 | `18-blockentities-ber.md` | 方块实体渲染器 - BER |
+
+### 实体系统
+| # | 文件 | 内容 |
+|---|------|------|
+| 19 | `19-entities.md` | 实体 - 注册、自定义实体 |
+| 20 | `20-entities-attributes.md` | 实体属性 |
+| 21 | `21-entities-data.md` | 实体数据 |
+| 22 | `22-entities-livingentity.md` | 活体实体 |
+| 23 | `23-entities-renderer.md` | 实体渲染 |
+
+### 资源系统
+| # | 文件 | 内容 |
+|---|------|------|
+| 24 | `24-resources.md` | 资源总览 - assets/data 结构、pack.mcmeta |
+| 25 | `25-resources-i18n.md` | 国际化 - 语言文件 |
+| 26 | `26-resources-models.md` | 模型系统 |
+| 27 | `27-resources-models-datagen.md` | 模型数据生成 |
+| 28 | `28-resources-models-items.md` | 物品模型 |
+| 29 | `29-resources-models-modelloaders.md` | 模型加载器 |
+| 30 | `30-resources-textures.md` | 纹理 |
+| 31 | `31-resources-sounds.md` | 音效 |
+| 32 | `32-resources-particles.md` | 粒子 |
+
+### 数据存储
+| # | 文件 | 内容 |
+|---|------|------|
+| 33 | `33-datastorage-codecs.md` | 🔥 Codec - 序列化/反序列化 |
+| 34 | `34-datastorage-nbt.md` | NBT 数据 |
+| 35 | `35-datastorage-saveddata.md` | 存档数据 |
+| 36 | `36-datastorage-attachments.md` | Attachment - 附加数据 |
+| 37 | `37-datastorage-valueio.md` | Value IO |
+
+### 网络
+| # | 文件 | 内容 |
+|---|------|------|
+| 38 | `38-networking.md` | 网络总览 |
+| 39 | `39-networking-payload.md` | 🔥 Payload - 自定义网络包 |
+| 40 | `40-networking-streamcodecs.md` | Stream Codec |
+| 41 | `41-networking-configuration-tasks.md` | 配置任务 |
+
+### 渲染
+| # | 文件 | 内容 |
+|---|------|------|
+| 42 | `42-rendering-screens.md` | 🔥 GUI 屏幕 - Screen、ContainerScreen |
+| 43 | `43-rendering-feature.md` | 特征渲染 |
+| 44 | `44-rendering-particles.md` | 粒子渲染 |
+
+### 物品栏
+| # | 文件 | 内容 |
+|---|------|------|
+| 45 | `45-inventories-capabilities.md` | 物品栏能力 |
+| 46 | `46-inventories-container.md` | 容器 |
+| 47 | `47-inventories-menus.md` | 菜单 |
+| 48 | `48-inventories-transactions.md` | 交易 |
+
+### 杂项
+| # | 文件 | 内容 |
+|---|------|------|
+| 49 | `49-misc-identifier.md` | 🔥 Identifier / ResourceLocation / ResourceKey |
+| 50 | `50-misc-keymappings.md` | 键位绑定 |
+| 51 | `51-misc-config.md` | Config - NeoForge 配置系统 |
+| 52 | `52-misc-gametest.md` | 游戏测试 |
+| 53 | `53-misc-updatechecker.md` | 更新检查 |
+| 54 | `54-misc-debugprofiler.md` | 调试性能分析 |
+
+### 高级
+| # | 文件 | 内容 |
+|---|------|------|
+| 55 | `55-advanced-accesstransformers.md` | Access Transformer |
+| 56 | `56-advanced-extensibleenums.md` | 可扩展枚举 |
+| 57 | `57-advanced-featureflags.md` | 功能标志 |
+
+### 世界生成
+| # | 文件 | 内容 |
+|---|------|------|
+| 58 | `58-worldgen-biomemodifier.md` | 生物群系修改器 |
+

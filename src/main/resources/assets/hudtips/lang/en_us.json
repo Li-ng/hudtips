@@ -1,0 +1,23 @@
+{
+  "fml.menu.mods.info.description.hudtips": "Add conditional HUD hints to modpacks via JSON config — auto-displays tips when holding items, looking at blocks, or pressing keys. Supports guide mode, AND/OR trigger combos, and adaptive scaling.",
+  "hudtips.configuration.title": "HUD Tips Config",
+  "hudtips.configuration.section.hudtips.client.toml": "HUD Tips",
+  "hudtips.configuration.section.hudtips.client.toml.title": "HUD Tips Settings",
+  "hudtips.configuration.enabled": "Enable Mod",
+  "hudtips.configuration.enabled.tooltip": "Master switch to enable/disable the mod.",
+  "hudtips.configuration.scaleWithGui": "Adaptive Text",
+  "hudtips.configuration.scaleWithGui.tooltip": "Enable adaptive text sizing based on GUI scale and resolution.",
+  "hudtips.configuration.textSize": "Text Size",
+  "hudtips.configuration.textSize.tooltip": "Base text size. 0 = 0.5x, 50 = 1.5x, 100 = 2.5x.",
+  "hudtips.configuration.resolutionComp": "Resolution Comp.",
+  "hudtips.configuration.resolutionComp.tooltip": "Resolution compensation strength. 0 = none, 100 = full.",
+  "hudtips.configuration.guiScaleComp": "GUI Scale Comp.",
+  "hudtips.configuration.guiScaleComp.tooltip": "GUI scale compensation strength. 0 = follow GUI, 100 = full.",
+  "hudtips.configuration.itemHintPosition": "Item Hint Position",
+  "hudtips.configuration.itemHintPosition.tooltip": "Default screen position for item-driven hints. Options: bottom_left, bottom_right, top_left, top_right, above_item.",
+  "hudtips.configuration.globalSeenState": "Global Seen State",
+  "hudtips.configuration.globalSeenState.tooltip": "When enabled, tutorial hint completion is shared across all saves. Completed tutorials won't reappear in other saves.",
+  "key.category.hudtips.hudtips": "HUD Tips",
+  "key.hudtips.reset_hint": "Reset Hint",
+  "hudtips.reset_hint": "Reset %s seen hint(s) for held item"
+}

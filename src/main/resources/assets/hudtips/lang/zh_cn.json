@@ -1,0 +1,23 @@
+{
+  "fml.menu.mods.info.description.hudtips": "通过 JSON 配置文件为整合包添加条件触发式 HUD 提示——手持物品、看向方块、按键时自动显示。支持教程模式、AND/OR 触发器组合与自适应缩放。",
+  "hudtips.configuration.title": "HUD 提示配置",
+  "hudtips.configuration.section.hudtips.client.toml": "HUD 提示",
+  "hudtips.configuration.section.hudtips.client.toml.title": "HUD 提示设置",
+  "hudtips.configuration.enabled": "启用模组",
+  "hudtips.configuration.enabled.tooltip": "模组总开关，关闭后所有提示不再显示。",
+  "hudtips.configuration.scaleWithGui": "自适应文字",
+  "hudtips.configuration.scaleWithGui.tooltip": "根据 GUI 缩放和屏幕分辨率自动调整提示文字大小。",
+  "hudtips.configuration.textSize": "文字大小",
+  "hudtips.configuration.textSize.tooltip": "基础文字大小。0 = 0.5倍，50 = 1.5倍，100 = 2.5倍。",
+  "hudtips.configuration.resolutionComp": "分辨率补偿",
+  "hudtips.configuration.resolutionComp.tooltip": "分辨率补偿强度。0 = 不补偿，100 = 完全补偿。",
+  "hudtips.configuration.guiScaleComp": "GUI 缩放补偿",
+  "hudtips.configuration.guiScaleComp.tooltip": "GUI 缩放补偿强度。0 = 跟随 GUI，100 = 完全补偿。",
+  "hudtips.configuration.itemHintPosition": "物品提示位置",
+  "hudtips.configuration.itemHintPosition.tooltip": "物品驱动提示的默认屏幕位置。可选：bottom_left、bottom_right、top_left、top_right、above_item。",
+  "hudtips.configuration.globalSeenState": "全局已读状态",
+  "hudtips.configuration.globalSeenState.tooltip": "启用后教程型提示的完成状态在所有存档间共享，完成过的教程不会在其他存档中再次显示。",
+  "key.category.hudtips.hudtips": "HUD 提示",
+  "key.hudtips.reset_hint": "重置提示",
+  "hudtips.reset_hint": "已重置手持物品的 %s 条已读提示"
+}
