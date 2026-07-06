@@ -4,95 +4,97 @@
 [![NeoForge](https://img.shields.io/badge/NeoForge-26.1-orange.svg)](https://neoforged.net/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-**HUD Tips** 是一个 Minecraft NeoForge 模组，允许整合包作者通过 JSON 配置文件自定义 HUD 提示信息。当玩家触发特定条件（如手持物品、看向方块、进入维度等）时，屏幕上会动态显示对应的提示文本。
+[中文版 / Chinese](README_zh.md)
+
+**HUD Tips** is a Minecraft NeoForge mod that lets modpack authors create custom HUD hints via JSON configuration. When players trigger specific conditions (holding an item, looking at a block, entering a dimension, etc.), the corresponding hint text dynamically appears on screen.
 
 ---
 
-## ✨ 功能特性
+## ✨ Features
 
-- **📝 JSON 驱动** — 所有提示规则通过 JSON 文件配置，无需编写代码
-- **🎯 9 种触发器** — 手持物品、使用物品、按键、看向方块/实体、低血量、维度变化……满足各种场景
-- **🔗 AND/OR 组合** — 多个触发器可自由组合（如"手持钻石剑 **且** 看向苦力怕"）
-- **📖 教程系统** — 支持 `guide` 类型，显示一次后自动标记完成，带庆祝动画
-- **⌨ 按键显示** — `{key:key.sneak}` 自动显示玩家实际绑定的按键
-- **🎨 灵活样式** — 文字颜色、背景颜色、位置、缩放、偏移全部可配
-- **📐 自适应缩放** — 根据屏幕分辨率和 GUI 比例自动调整文字大小
-- **🏷 标签匹配** — 支持 `#minecraft:swords` 等物品/方块标签
-- **📂 多文件配置** — 配置拆分为多个 JSON 文件，方便管理
-
----
-
-## 📦 安装
-
-1. 安装 [NeoForge 26.1](https://neoforged.net/) 或更高版本
-2. 下载本模组的 `.jar` 文件，放入 `mods/` 文件夹
-3. 启动游戏，模组会自动生成默认配置文件
+- **📝 JSON-Driven** — All hint rules configured via JSON files, no coding required
+- **🎯 9 Trigger Types** — Hold item, use item, key press, look at block/entity, low health, dimension change... covers every scenario
+- **🔗 AND/OR Logic** — Combine multiple triggers freely (e.g., "holding a diamond sword **AND** looking at a creeper")
+- **📖 Tutorial System** — `guide` type rules display once, auto-mark as complete with a celebration animation
+- **⌨ Key Display** — `{key:key.sneak}` automatically shows the player's actual keybinding
+- **🎨 Flexible Styling** — Text color, background color, position, scale, and offset all configurable
+- **📐 Adaptive Scaling** — Automatically adjusts text size based on screen resolution and GUI scale
+- **🏷 Tag Matching** — Supports item/block tags like `#minecraft:swords`
+- **📂 Multi-File Config** — Split configuration across multiple JSON files for easy management
 
 ---
 
-## ⚙ 配置
+## 📦 Installation
 
-### TOML 配置（游戏内可修改）
-
-`config/hudtips/hudtips-client.toml`：
-
-| 设置项 | 说明 | 默认值 |
-|--------|------|--------|
-| `enabled` | 模组总开关 | `true` |
-| `scaleWithGui` | 自适应文字大小 | `false` |
-| `textSize` | 基础文字大小 (0-100) | `50` |
-| `resolutionComp` | 分辨率补偿强度 (0-100) | `50` |
-| `guiScaleComp` | GUI 缩放补偿强度 (0-100) | `50` |
-| `itemHintPosition` | 物品提示默认位置 | `bottom_left` |
-| `globalSeenState` | 全局已读状态（跨存档共享教程进度） | `false` |
-
-### JSON 规则配置
-
-在 `config/hudtips/` 下创建 `.json` 文件定义提示规则。模组启动时会自动生成 `_reference.json` 参考文档。
+1. Install [NeoForge 26.1](https://neoforged.net/) or later
+2. Download the mod `.jar` file and place it in your `mods/` folder
+3. Launch the game — the mod will auto-generate default configuration files
 
 ---
 
-## 🎮 触发器类型
+## ⚙ Configuration
 
-### Continuous（持续型）— 条件满足期间持续显示
+### TOML Config (editable in-game)
 
-| 触发器 | 说明 | 示例 |
-|--------|------|------|
-| `hold_item` | 手持指定物品 | 手持钻石剑时显示剑气提示 |
-| `on_dimension` | 处于指定维度 | 在下界时持续显示警告 |
-| `on_low_health` | 血量低于阈值 | 低血量时显示逃生提示 |
-| `on_look_block` | 看向指定方块 | 看向工作台时显示"右键打开合成" |
-| `on_look_entity` | 看向指定实体 | 看向苦力怕时显示"快跑！" |
+`config/hudtips/hudtips-client.toml`:
 
-### Event（事件型）— 触发瞬间激活，由时间控制消失
+| Setting | Description | Default |
+|---------|-------------|---------|
+| `enabled` | Master toggle for the mod | `true` |
+| `scaleWithGui` | Auto-adjust text size | `false` |
+| `textSize` | Base text size (0-100) | `50` |
+| `resolutionComp` | Resolution compensation (0-100) | `50` |
+| `guiScaleComp` | GUI scale compensation (0-100) | `50` |
+| `itemHintPosition` | Default position for item hints | `bottom_left` |
+| `globalSeenState` | Global seen state (share tutorial progress across saves) | `false` |
 
-| 触发器 | 说明 | 示例 |
-|--------|------|------|
-| `on_use` | 使用物品 | 右键弓时提示蓄力 |
-| `on_dimension_change` | 切换维度 | 首次进入下界时显示指南 |
-| `on_key_press` | 按下按键 | 按潜行键时显示操作提示 |
-| `on_kill` | 击杀实体 | 击杀僵尸时显示战利品提示 |
-| `on_activate_block` | 手持物品右键方块 | 手持骨粉右键树苗时提示催熟 |
+### JSON Rule Config
+
+Create `.json` files under `config/hudtips/` to define hint rules. A `_reference.json` file is auto-generated on first launch.
 
 ---
 
-## 📝 规则编写示例
+## 🎮 Trigger Types
 
-### 基础示例：手持物品提示
+### Continuous — displayed while conditions are met
+
+| Trigger | Description | Example |
+|---------|-------------|---------|
+| `hold_item` | Holding a specific item | Show blade aura tip when holding diamond sword |
+| `on_dimension` | In a specific dimension | Show warning while in the Nether |
+| `on_low_health` | Health below threshold | Show escape tip when low on health |
+| `on_look_block` | Looking at a specific block | Show "Right-click to open crafting" when looking at a crafting table |
+| `on_look_entity` | Looking at a specific entity | Show "Run!" when looking at a creeper |
+
+### Event — activated on trigger, dismissed by timer
+
+| Trigger | Description | Example |
+|---------|-------------|---------|
+| `on_use` | Using an item | Show charge tip when right-clicking a bow |
+| `on_dimension_change` | Changing dimensions | Show guide when first entering the Nether |
+| `on_key_press` | Pressing a key | Show control tip when pressing sneak |
+| `on_kill` | Killing an entity | Show loot tip when killing a zombie |
+| `on_activate_block` | Right-clicking a block with an item | Show growth tip when using bonemeal on a sapling |
+
+---
+
+## 📝 Example Rules
+
+### Basic: Hold Item Hint
 
 ```json
 {
   "items": ["minecraft:diamond_sword"],
-  "text": "💡 按 {key:key.sneak} + 右键 释放剑气"
+  "text": "💡 Press {key:key.sneak} + right-click to release blade aura"
 }
 ```
 
-### AND 组合：手持物品 + 特定维度
+### AND Combination: Hold Item + Specific Dimension
 
 ```json
 {
   "items": ["minecraft:bed"],
-  "text": "💥 在下界使用床会爆炸！",
+  "text": "💥 Beds explode in the Nether!",
   "triggerOn": {
     "hold_item": true,
     "on_dimension": "minecraft:the_nether"
@@ -101,24 +103,24 @@
 }
 ```
 
-### 多触发器 OR：手持或使用时都显示
+### Multi-Trigger OR: Show on hold or use
 
 ```json
 {
   "items": ["minecraft:bow"],
-  "text": "🎯 长按右键蓄力，松开发射！",
+  "text": "🎯 Hold right-click to charge, release to fire!",
   "triggerOn": ["hold_item", "on_use"],
   "dismissOn": ["time:3000"]
 }
 ```
 
-### 教程型：显示一次 + 庆祝动画
+### Tutorial: Show Once + Celebration Animation
 
 ```json
 {
   "items": ["minecraft:wooden_pickaxe"],
   "type": "guide",
-  "text": "⛏ 对准矿石右键挖掘！煤炭和铁是最好的初期资源",
+  "text": "⛏ Right-click on ores to mine! Coal and iron are the best early resources",
   "triggerOn": {
     "hold_item": true,
     "on_look_block": {
@@ -130,14 +132,14 @@
 }
 ```
 
-### 看向实体 + 手持物品
+### Look at Entity + Hold Item
 
 ```json
 {
   "items": ["minecraft:shears"],
   "type": "guide",
   "id": "shear_sheep",
-  "text": "✂ 右键剪羊毛！",
+  "text": "✂ Right-click to shear the sheep!",
   "triggerOn": {
     "hold_item": true,
     "on_look_entity": "minecraft:sheep"
@@ -149,30 +151,30 @@
 
 ---
 
-## 🏗 构建
+## 🏗 Building
 
 ```bash
-# 克隆仓库
-git clone https://github.com/Xiao__Gua/hudtips.git
+# Clone the repository
+git clone https://github.com/Li-ng/hudtips.git
 cd hudtips
 
-# 构建
+# Build
 ./gradlew build
 
-# 构建产物位于 build/libs/
+# Output located at build/libs/
 ```
 
-需要 JDK 25 和 NeoForge 26.1。
+Requires JDK 25 and NeoForge 26.1.
 
 ---
 
-## 📄 许可证
+## 📄 License
 
-MIT License — 详见 [LICENSE](LICENSE) 文件。
+MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
-## 🙏 致谢
+## 🙏 Credits
 
 - [NeoForge](https://neoforged.net/) — Minecraft modding platform
-- 所有提供反馈和建议的玩家
+- All players who provided feedback and suggestions
