@@ -9,7 +9,7 @@
 license="${mod_license}"
 
 # A URL to refer people to when problems occur with this mod
-issueTrackerURL="https://github.com/Xiao__Gua/hudtips/issues" #optional
+issueTrackerURL="https://github.com/Li-ng/hudtips/issues" #optional
 
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
@@ -27,7 +27,7 @@ displayName="${mod_name}" #mandatory
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
 
 # A URL for the "homepage" for this mod, displayed in the mod UI
-displayURL="https://github.com/Xiao__Gua/hudtips" #optional
+displayURL="https://github.com/Li-ng/hudtips" #optional
 
 # A file name (in the root of the mod JAR) containing a logo for display
 #logoFile="examplemod.png" #optional
@@ -39,7 +39,7 @@ credits="Thanks to the NeoForge team and all players who provided feedback!" #op
 authors="Xiao__Gua"
 
 # The description text for the mod (multi line!) (#mandatory)
-description="Add conditional HUD hints to modpacks via JSON config."
+description="HUD Tips lets modpack authors create custom on-screen hints via JSON config. Supports 9 trigger types (hold item, look at block/entity, key press, dimension change, etc.), AND/OR combinations, tutorial system with celebration animation, keybinding display, tag matching, and adaptive scaling. Configure once, guide players through your entire modpack."
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.
 [[mixins]]
