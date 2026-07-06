@@ -164,7 +164,7 @@ cd hudtips
 # 构建产物位于 build/libs/
 ```
 
-需要 JDK 25 和 NeoForge 26.1。
+需要 JDK 25 和 Minecraft 26.1。
 
 ---
 
